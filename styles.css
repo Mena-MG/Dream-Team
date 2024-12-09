@@ -13,9 +13,175 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/* Base font scaling for desktop */
 body {
     line-height: 1.6;
+    font-size: 16px;
     color: var(--text-color);
+}
+
+/* Adjust font size and spacing for medium devices (tablets) */
+@media (max-width: 1024px) {
+    body {
+        font-size: 15px; /* Slightly smaller base font size */
+    }
+
+    h1 {
+        font-size: 3.5rem; /* Adjust larger headers */
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    h3 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem; /* Adjust paragraph text */
+    }
+
+    .hero h1 {
+        font-size: 4rem; /* Resize hero header */
+    }
+
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+
+    .get-started-btn {
+        font-size: 1rem;
+        padding: 0.8rem 2rem; /* Adjust button padding */
+    }
+
+    .support h2 {
+        font-size: 2.2rem;
+    }
+
+    .support h3 {
+        font-size: 2rem;
+    }
+
+    .card h4 {
+        font-size: 1.1rem;
+    }
+
+    .testimonial-content p {
+        font-size: 1rem;
+    }
+}
+
+/* Adjust font size and spacing for small devices (phones) */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; /* Smaller font size for phones */
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    p {
+        font-size: 0.9rem; /* Smaller paragraph text */
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+
+    .get-started-btn {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.8rem; /* Adjust button padding */
+    }
+
+    .support h2 {
+        font-size: 2rem;
+    }
+
+    .support h3 {
+        font-size: 1.8rem;
+    }
+
+    .card h4 {
+        font-size: 1rem;
+    }
+
+    .testimonial-content p {
+        font-size: 0.9rem;
+    }
+
+    .coaches h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Adjust for extra-small devices (small phones) */
+@media (max-width: 480px) {
+    body {
+        font-size: 13px; /* Even smaller base font size */
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 0.8rem; /* Smaller paragraph text */
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero h2 {
+        font-size: 1.2rem;
+    }
+
+    .get-started-btn {
+        font-size: 0.8rem;
+        padding: 0.5rem 1.5rem; /* Adjust button padding */
+    }
+
+    .support h2 {
+        font-size: 1.8rem;
+    }
+
+    .support h3 {
+        font-size: 1.6rem;
+    }
+
+    .card h4 {
+        font-size: 0.9rem;
+    }
+
+    .testimonial-content p {
+        font-size: 0.8rem;
+    }
+
+    .coaches h2 {
+        font-size: 1.8rem;
+    }
 }
 
 /* Header Styles */
@@ -97,11 +263,12 @@ nav {
 .hero {
     min-height: 100vh;
     display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    padding: 0 5%;
+    flex-direction: column; /* Align items vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    text-align: center; /* Align text centrally */
 }
+
 
 .hero-bg {
     position: absolute;
@@ -111,6 +278,7 @@ nav {
     height: 100%;
     background: url('images/istockphoto-1325565887-612x612.jpg') no-repeat center center;
     background-size: cover;
+    filter: brightness(0.9);
     z-index: -1;
 }
 
@@ -121,13 +289,27 @@ nav {
     left: 0;
     width: 100%;
     height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+    z-index: 0; /* Ensures it's below the text but above the image */
 }
+
 
 .hero-content {
     position: relative;
     z-index: 1;
     color: white;
     max-width: 800px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .hero h1 {
@@ -135,7 +317,24 @@ nav {
     line-height: 1.2;
     margin-bottom: 2rem;
     font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Add a shadow for better visibility */
 }
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 3rem;
+    }
+}
+
+.hero h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    color: #f0f0f0;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+
 
 .get-started-btn {
     background: var(--secondary-color);
@@ -153,6 +352,11 @@ nav {
     background: #00a0c4;
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+}
+.get-started-btn:focus {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.5);
 }
 
 /* Support Section */
